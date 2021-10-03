@@ -1,50 +1,90 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 17:56:14 by faguilar          #+#    #+#             */
-/*   Updated: 2021/09/19 12:28:29 by faguilar         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libftprintf.h"
 #include <stdio.h>
 
-int	main()
+void c_test()
 {
-	char			c = 'a';
-	ft_printf("%c print a single character.\n", c);
-	printf("ORIG >>> %c print a single character.\n", c);
-	char 			*s = "abc";
-	ft_printf("%s print a string of characters.\n", s);
-	printf("ORIG >>> %s print a string of characters.\n", s);
-	void 			*p = &s;
-	ft_printf("%p The void * pointer argument is printed in hexadecimal.\n", p);
-	printf("ORIG >>> %p The void * pointer argument is printed in hexadecimal.\n", p);
-	int				d = 2;
-	ft_printf("%d print a decimal (base 10) number.\n", d);
-	printf("ORIG >>> %d print a decimal (base 10) number.\n", d);
-	int				i = 2;
-	ft_printf("%i print an integer in base 10.\n", i);
-	printf("ORIG >>> %i print an integer in base 10.\n", i);
-	unsigned int	u = 42;
-	ft_printf("%u print an unsigned decimal (base 10) number.\n", u);
-	printf("ORIG >>> %u print an unsigned decimal (base 10) number.\n", u);
-	int				x = 256;
-	ft_printf("%x print a number in hexadecimal (base 16).\n", x);
-	printf("ORIG >>> %x print a number in hexadecimal (base 16).\n", x);
-	ft_printf("%% print a percent sign\n");
-	printf("ORIG >>> %% print a percent sign\n");
+	int	ft, or;
+	char			c[10] = {'a' , '\0', 255, -1, -90, '\"', '\''};
+	int i_c = 0;
+	while (i_c++ < 6)
+	{
+		ft_printf("c\t");
+		ft = ft_printf("|%c|\t\t\t", c[i_c]);
+		or = printf("|%c|\t\t\t", c[i_c]);
+		ft_printf("ft = %d, or = %d\n", ft, or);
+	}
 }
 
-// c > ft_putchar_fd()		char	int
-// s > ft_putstr_fd()		char*	int
-// p > ft_putptr - NEW()
-// d > ft_putnbr_fd()		int		int
-// i > ft_putnbr_fd()		int		int
-// u > ft_putnbr_fd()		int		int
-// x > ft_putnbrbase_fd HEX NEW()
-// % > ft_putchar_fd()		char	int
+
+int	main()
+{
+	int	ft, or;
+
+	ft = ft_printf("FLAG\tMINE\t\t\tORIG\n");
+	c_test();
+	char 			*s = "abc";
+	ft_printf("s\t");
+	ft = ft_printf("|%s|\t\t\t", s);
+	or = printf("|%s|\t\t\t", s);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	void 			*p = &s;
+	ft_printf("p\t");
+	ft = ft_printf("|%p|\t\t\t", p);
+	or = printf("|%p|\t\t\t", p);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	p = (char *)malloc(1);
+	ft_printf("p\t");
+	ft = ft_printf("|%p|\t\t\t", p);
+	or = printf("|%p|\t\t\t", p);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	p = NULL;
+	ft_printf("p\t");
+	ft = ft_printf("|%p|\t\t\t", p);
+	or = printf("|%p|\t\t\t", p);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	int				d = 2;
+	ft_printf("d\t");
+	ft = ft_printf("|%d|\t\t\t", d);
+	or = printf("|%d|\t\t\t", d);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	int				i = 2;
+	ft_printf("o\t");
+	ft = ft_printf("|%i|\t\t\t", i);
+	or = printf("|%i|\t\t\t", i);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	unsigned int	u = -42;
+	ft_printf("u\t");
+	ft = ft_printf("|%u|\t\t\t", -42);
+	or = printf("|%u|\t\t\t", -42);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	int				x = 0;
+	ft_printf("x\t");
+	ft = ft_printf("|%x|\t\t\t", x);
+	or = printf("|%x|\t\t\t", x);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	x = 161616;
+	ft_printf("x\t");
+	ft = ft_printf("|%x|\t\t\t", x);
+	or = printf("|%x|\t\t\t", x);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	x = 5000000;
+	ft_printf("x\t");
+	ft = ft_printf("|%x|\t\t\t", x);
+	or = printf("|%x|\t\t\t", x);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	x = -2147483648;
+	ft_printf("x\t");
+	ft = ft_printf("|%x|\t\t\t", x);
+	or = printf("|%x|\t\t\t", x);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	x = 2147483647;
+	ft_printf("x\t");
+	ft = ft_printf("|%x|\t\t\t", x);
+	or = printf("|%x|\t\t\t", x);
+	ft_printf("ft = %d, or = %d\n", ft, or);
+	ft_printf("%%\t");
+	ft = ft_printf("t|%%|\t\t\t");
+	or = printf("|%%|\t\t\t");
+	ft_printf("ft = %d, or = %d\n", ft, or);
+}
+

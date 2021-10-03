@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 18:31:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/02 18:58:38 by faguilar         ###   ########.fr       */
+/*   Created: 2021/08/18 23:19:17 by faguilar          #+#    #+#             */
+/*   Updated: 2021/09/03 18:33:01 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *str, ...);
-void	ft_puthex_fd(int n, int fd);
-void	ft_putaddress_fd(unsigned long n, int fd);
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if ((unsigned char)s[i] == (unsigned char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (c == '\0')
+	{
+		return ((char *)&s[i]);
+	}
+	return (NULL);
+}

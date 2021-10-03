@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 18:31:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/02 18:58:38 by faguilar         ###   ########.fr       */
+/*   Created: 2021/08/25 19:27:50 by faguilar          #+#    #+#             */
+/*   Updated: 2021/08/25 19:30:49 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *str, ...);
-void	ft_puthex_fd(int n, int fd);
-void	ft_putaddress_fd(unsigned long n, int fd);
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

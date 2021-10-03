@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 18:31:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/02 18:58:38 by faguilar         ###   ########.fr       */
+/*   Created: 2021/08/19 23:23:37 by faguilar          #+#    #+#             */
+/*   Updated: 2021/08/25 07:53:40 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *str, ...);
-void	ft_puthex_fd(int n, int fd);
-void	ft_putaddress_fd(unsigned long n, int fd);
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
-#endif
+	if (n == 0)
+		return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while ((str1[i] == str2[i]) && (i < n - 1))
+	{
+		i++;
+	}
+	return (str1[i] - str2[i]);
+}
