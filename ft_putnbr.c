@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 00:32:55 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/04 00:32:56 by faguilar         ###   ########.fr       */
+/*   Created: 2021/10/04 00:29:20 by faguilar          #+#    #+#             */
+/*   Updated: 2021/10/04 00:34:22 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	ft_digtohex(int n, char **str)
+static void	ft_putdigit(int n, char **str)
 {
-	char	*hex;
+	char	c;
 
-	hex = "0123456789abcdef";
-	*str = ft_chrjoin(*str, (char)*(hex + n));
+	c = n + '0';
+	*str = ft_chrjoin(*str, (char)c);
 }
 
-static void	ft_puthexadd(long long n, char **str)
+void	ft_putnbr(int n, char **str)
 {
-	if (n >= 16)
-		ft_puthexadd(n / 16, str);
-	ft_digtohex(n % 16, str);
-}
+	long int	nbr;
 
-void	ft_putaddress(unsigned long n, char **str)
-{
-	*str = ft_strjoin(*str, "0x");
-	ft_puthexadd(n, str);
+	nbr = (long int)n;
+	if (n < 0)
+	{
+		*str = ft_chrjoin(*str, '-');
+		nbr = -nbr;
+	}
+	if (nbr >= 10)
+		ft_putnbr(nbr / 10, str);
+	ft_putdigit(nbr % 10, str);
 }

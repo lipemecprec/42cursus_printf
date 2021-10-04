@@ -6,88 +6,67 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 18:20:59 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/03 15:27:40 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/04 00:32:03 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int flag_check(const char *str, va_list	ap, int *len)
+void	flag_check(const char *str, va_list	ap, char **str_out)
 {
-	char	*s;
 	int		i;
-	
+
 	if (*str == 'c')
-	{
-		ft_putchar_fd(va_arg(ap, int), 1);
-		len++;
-	}
+		ft_putchar(va_arg(ap, int), str_out);
 	else if (*str == 's')
-	{
-		s = va_arg(ap, char *);
-		ft_putstr_fd(s, 1);
-		len += ft_strlen(s);
-	}
+		ft_putstr(va_arg(ap, char *), str_out);
 	else if (*str == 'p')
-	{
-		ft_putaddress_fd(va_arg(ap, unsigned long int), 1); // TODO Tratar NULL pointer
-		// len += ft_strlen(s);
-	}
+		ft_putaddress(va_arg(ap, unsigned long int), str_out);
 	else if (*str == 'd' || *str == 'i')
-	{
-		i = va_arg(ap, int);
-		ft_putnbr_fd(i, 1);
-		len++;
-	}
+		ft_putnbr(va_arg(ap, int), str_out);
 	else if (*str == 'u')
 	{
 		i = va_arg(ap, unsigned int);
 		ft_putnbr_fd(i, 1);
-		len++;
 	}
 	else if (*str == 'x')
 	{
 		i = va_arg(ap, int);
 		ft_puthex_fd(i, 1);
-		// len += ft_strlen(s);
 	}
 	else if (*str == '%')
 	{
-		ft_putchar_fd('%', 1);
-		len++;
+		*str_out = ft_chrjoin(*str_out, *str);
 	}
-	return (*len);
 }
 
-int	readline(const char *str, va_list	ap, int		*len)
+void	readline(const char *str, va_list	ap, char **str_out)
 {
 	while (*str != 0)
 	{
 		if (*str == '%')
 		{
 			str++;
-			flag_check(str, ap, len);
+			flag_check(str, ap, str_out);
 		}
 		else{
-			ft_putchar_fd(*str, 1);
+			*str_out = ft_chrjoin(*str_out, *str);
 		}
 		str++;
 	}
-	return (*len);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
-	int *len_pointer;
-	int lenght;
+	char	**str_out_ptr;
+	char	*str_out;
 
-	len_pointer = (int *)malloc(sizeof(int));
+	str_out = "";
+	str_out_ptr = &str_out;
 	va_start(ap, str);
-		readline(str, ap, len_pointer);
+		readline(str, ap, str_out_ptr);
 	va_end(ap);
-
-	lenght = *len_pointer;
-	free(len_pointer);
-	return (lenght);
+	ft_putstr_fd(str_out, 1);
+	return (ft_strlen(str_out));
 }
