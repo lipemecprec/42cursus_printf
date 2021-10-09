@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 15:37:14 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/04 02:03:27 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/08 05:32:04 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *s, char **str)
 {
-	if (s == 0)
-		return;
+	// if (s == 0)
+	// 	return;
 	*str = ft_strjoin(*str, s);
 }

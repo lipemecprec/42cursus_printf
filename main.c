@@ -1,5 +1,15 @@
-#include "libftprintf.h"
+#include "srcs/libftprintf.h"
 #include <stdio.h>
+
+#define INT_MIN -2147483648
+#define INT_MAX 2147483647
+#define UINT_MAX 4294967295
+#define LONG_MIN -214748365
+#define LONG_MAX 2147483647
+#define ULONG_MAX 4294967295
+#define LLONG_MIN -9223372036854775808
+#define LLONG_MAX 9223372036854775807
+#define ULLONG_MAX 18446744073709551615
 
 void	read_test(void)
 {
