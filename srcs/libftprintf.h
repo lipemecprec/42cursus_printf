@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 18:31:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/09 02:32:59 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/10 20:27:55 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 int		ft_printf(const char *str, ...);
 void	ft_puthex(long int n, char **str);
-void	ft_putaddress(unsigned long n, char **str);
+void	ft_putupperhex(long int n, char **str);
+void	ft_putaddress(long int n, char **str);
 char	*ft_chrjoin(char const *s1, char c);
 void	ft_putchar(char c, char **str);
 void	ft_putstr(char *s, char **str);
