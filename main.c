@@ -1,4 +1,4 @@
-#include "srcs/libftprintf.h"
+#include "./srcs/libftprintf.h"
 #include <stdio.h>
 
 #define INT_MIN -2147483648
