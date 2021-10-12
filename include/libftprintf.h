@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 18:31:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/10 20:27:55 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/12 14:41:25 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
+# include "libft.h"
 
 int		ft_printf(const char *str, ...);
 void	ft_puthex(long int n, char **str);

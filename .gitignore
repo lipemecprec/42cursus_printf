@@ -1,5 +1,6 @@
-.vscode
+.vscode/
 *.o
 *.a
 *.so
 ft_printf_tester
+printfTester

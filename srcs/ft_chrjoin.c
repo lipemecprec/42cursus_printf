@@ -6,23 +6,35 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 14:25:03 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/10 06:55:05 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/12 17:06:18 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+// char	*ft_chrjoin(char const *s1, char c)
+// {
+// 	char	*join;
+// 	size_t	s1len;
+
+// 	s1len = ft_strlen(s1);
+// 	join = (char *)malloc((s1len + 1 + 1) * sizeof(char));
+// 	if (!join)
+// 		return (NULL);
+// 	ft_strlcpy(join, s1, s1len + 1);
+// 	join[s1len] = c;
+// 	join[s1len + 1] = '\0';
+// 	return (join);
+// }
+
 char	*ft_chrjoin(char const *s1, char c)
 {
+	char	*s2;
 	char	*join;
-	size_t	s1len;
 
-	s1len = ft_strlen(s1);
-	join = (char *)malloc((s1len + 1 + 1) * sizeof(char));
-	if (!join)
-		return (NULL);
-	ft_strlcpy(join, s1, s1len + 1);
-	join[s1len] = c;
-	join[s1len + 1] = '\0';
+	s2 = (char *)malloc(2 * sizeof(char));
+	s2[0] = c;
+	s2[1] = '\0';
+	join = ft_strjoin(s1, s2);
 	return (join);
 }

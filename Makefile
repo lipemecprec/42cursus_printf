@@ -1,17 +1,20 @@
 NAME = libftprintf.a
-LIBFTPRINTF = ./srcs/libftprintf.h
 
-LIBFT_PATH = ./libft
-LIBFT = ${LIBFT_PATH}/libft.a
+LIB_PATH = ./include
+LIBFT = ./libft/libft.a
+LIBFTPRINTF = ${LIB_PATH}/libftprintf.h
+LIBS = -lftprintf
 
 CC = clang
-FLAGS = -fPIE -Wall -Wextra -Werror
-INCLUDE = -I${LIBFT_PATH}
-LIB_FLAGS = -L{LIBFT_PATH} -lft
+FLAGS = -Wall -Wextra -Werror
+# FLAGS = -fPIE -w -fmax-errors=1
+INCLUDE = -I ${LIB_PATH}
 
 SRC_PATH = ./srcs
-SRC = ${SRC_PATH}/ft_printf.c ${SRC_PATH}/ft_chrjoin.c ${SRC_PATH}/ft_putaddress.c ${SRC_PATH}/ft_putchar.c \
- ${SRC_PATH}/ft_puthex.c ${SRC_PATH}/ft_putnbr.c ${SRC_PATH}/ft_putstr.c ${SRC_PATH}/ft_putunbr.c
+SRC = ${SRC_PATH}/ft_printf.c ${SRC_PATH}/ft_chrjoin.c \
+ ${SRC_PATH}/ft_putaddress.c ${SRC_PATH}/ft_putchar.c \
+ ${SRC_PATH}/ft_puthex.c ${SRC_PATH}/ft_putnbr.c \
+ ${SRC_PATH}/ft_putstr.c ${SRC_PATH}/ft_putunbr.c
 
 OBJ = ${SRC:%.c=%.o}
 
@@ -25,7 +28,7 @@ ${LIBFT}:
 	cp ${LIBFT} ${NAME}
 
 .c.o:
-	${CC} ${FLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
+	${CC} -c ${FLAGS} $< -o ${<:.c=.o} ${INCLUDE}
 
 clean:
 	make clean -C libft
@@ -44,8 +47,7 @@ rebonus: fclean bonus
 .PHONY: all clear fclean re bonus rebonus
 
 run: all
-	@gcc -fPIE main.c -c -o main.o
-	@gcc main.o -L. -lftprintf -o printf && ./printf
+	@gcc main.c ${LIBS} -o main ${INCLUDE} -L . && ./main
 
 debug:
 	${CC} -lbsd -g -Og -std=c99 -pedantic -Wconversion -g3 -DDEBUG -o debug main.c -lft -L ./libft -lftprintf -L . && ./debug

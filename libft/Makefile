@@ -1,5 +1,10 @@
 NAME = libft.a
 CC = gcc
+
+LIB_PATH = ../include
+INCLUDE = -I${LIB_PATH}
+LIB = -lft
+
 FLAGS = -Wall -Wextra -Werror
 FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalpha.c \
  ft_isalnum.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -22,8 +27,9 @@ all: ${NAME}
 ${NAME}: ${OBJECTS}
 	ar -rcs ${NAME} ${OBJECTS}
 
-${OBJECTS}: ${FILES}
-	${CC} ${FLAGS} -c ${FILES}
+.c.o:
+	# ${CC} ${FLAGS} -c ${FILES}
+	${CC} -c ${FLAGS} $< ${LIB} -o ${<:.c=.o} ${INCLUDE}
 
 clean:
 	${RM} ${OBJECTS}
