@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 20:17:58 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/16 22:10:15 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/18 20:32:53 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,3 @@ char	*ft_ctoa(char c)
 	a[1] = '\0';
 	return (a);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char *str;
-// 	char c;
-
-// 	c = '!';
-// 	str = ft_ctoa(c);
-// 	printf("%s", str);
-// 	free(str);
-// 	return (0);
-// }

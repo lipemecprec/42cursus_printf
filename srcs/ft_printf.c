@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 13:37:18 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 01:11:12 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/18 20:35:04 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 static char	*flag_check(const char *str, va_list ap)
 {
-	// char *out;
-	// cspdiuxX%
 	if (*str == 'c')
 		return (ft_ctoa(va_arg(ap, int)));
 	if (*str == 's')
@@ -65,7 +63,7 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	char	*str_out;
-	int 	len;
+	int		len;
 
 	len = 0;
 	str_out = ft_strdup("");
