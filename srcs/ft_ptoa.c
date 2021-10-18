@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ptoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 00:29:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/04 00:34:22 by faguilar         ###   ########.fr       */
+/*   Created: 2021/10/17 14:55:43 by faguilar          #+#    #+#             */
+/*   Updated: 2021/10/18 01:01:38 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	ft_putdigit(int n, char **str)
+char	*ft_ptoa(long long p)
 {
-	char	c;
+	char	*a;
+	char	*temp;
+	char	*temp_itoa;
+	int		mock_len;
 
-	c = n + '0';
-	*str = ft_chrjoin(*str, (char)c);
-}
-
-void	ft_putnbr(int n, char **str)
-{
-	long int	nbr;
-
-	nbr = (long int)n;
-	if (n < 0)
-	{
-		*str = ft_chrjoin(*str, '-');
-		nbr = -nbr;
-	}
-	if (nbr >= 10)
-		ft_putnbr(nbr / 10, str);
-	ft_putdigit(nbr % 10, str);
+	temp = (char *)malloc(32 * sizeof(char));
+	temp[0] = '0';
+	temp[1] = 'x';
+	mock_len = 2;
+	temp_itoa = ft_ulitoa_base(p, 16, 'x');
+	a = ft_charsjoin(temp, temp_itoa, 'x', &mock_len);
+	free(temp_itoa);
+	free(temp);
+	return (a);
 }

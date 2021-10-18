@@ -6,17 +6,18 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 14:25:03 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/12 19:36:17 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:35:40 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_chrjoin(char const *s1, char c)
+char	*ft_chrjoin(char const *s1, char c, int *len)
 {
 	char	*s2;
 	char	*join;
 
+	len = 0;
 	s2 = (char *)malloc(2 * sizeof(char));
 	s2[0] = c;
 	s2[1] = '\0';

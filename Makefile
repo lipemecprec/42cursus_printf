@@ -7,21 +7,24 @@ LIBS = -lftprintf
 
 CC = clang
 FLAGS = -Wall -Wextra -Werror
-# FLAGS = -fPIE -w -fmax-errors=1
 INCLUDE = -I ${LIB_PATH}
 
-SRC_PATH = ./srcs
-SRC = ${SRC_PATH}/ft_printf.c ${SRC_PATH}/ft_chrjoin.c \
- ${SRC_PATH}/ft_putaddress.c ${SRC_PATH}/ft_putchar.c \
- ${SRC_PATH}/ft_puthex.c ${SRC_PATH}/ft_putnbr.c \
- ${SRC_PATH}/ft_putstr.c ${SRC_PATH}/ft_putunbr.c
+SRCS_PATH = ./srcs
+SRCS = 	${SRCS_PATH}/ft_printf.c \
+		${SRCS_PATH}/ft_charsjoin.c \
+		${SRCS_PATH}/ft_ctoa.c \
+		${SRCS_PATH}/ft_chrjoin.c \
+		${SRCS_PATH}/ft_itoa_base.c \
+		${SRCS_PATH}/ft_printf_utils.c \
+		${SRCS_PATH}/ft_ptoa.c \
+		${SRCS_PATH}/ft_stoa.c 
 
-OBJ = ${SRC:%.c=%.o}
+OBJS = ${SRCS:%.c=%.o}
 
 all: ${NAME}
 
-${NAME}:  ${OBJ} ${LIBFT}
-	ar rc ${NAME} ${OBJ}
+${NAME}: ${OBJS} ${LIBFT}
+	ar rc ${NAME} ${OBJS}
 
 ${LIBFT}:
 	make -C libft
@@ -32,7 +35,7 @@ ${LIBFT}:
 
 clean:
 	make clean -C libft
-	rm -rf ${OBJ}
+	rm -rf ${OBJS}
 
 fclean: clean
 	make fclean -C libft
@@ -40,14 +43,11 @@ fclean: clean
 
 re: fclean all
 
-bonus:
-
-rebonus: fclean bonus
-
 .PHONY: all clear fclean re bonus rebonus
 
-run: all
-	@gcc main.c ${LIBS} -o main ${INCLUDE} -L . && ./main
+run:
+	gcc ${SRCS} main.c libft/*.c -I ./include && ./a.out | cat -e
+	@# ${CC} ${FLAGS} main.c ${SRCS} ${INCLUDE} && ./a.out
 
 debug:
 	${CC} -lbsd -g -Og -std=c99 -pedantic -Wconversion -g3 -DDEBUG -o debug main.c -lft -L ./libft -lftprintf -L . && ./debug

@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_ctoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 01:37:53 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/04 02:02:33 by faguilar         ###   ########.fr       */
+/*   Created: 2021/10/16 20:17:58 by faguilar          #+#    #+#             */
+/*   Updated: 2021/10/16 22:10:15 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char c, char **str)
+char	*ft_ctoa(char c)
 {
-	*str = ft_chrjoin(*str, c);
+	char	*a;
+
+	a = (char *)malloc(2 * sizeof(char));
+	a[0] = c;
+	a[1] = '\0';
+	return (a);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char *str;
+// 	char c;
+
+// 	c = '!';
+// 	str = ft_ctoa(c);
+// 	printf("%s", str);
+// 	free(str);
+// 	return (0);
+// }
