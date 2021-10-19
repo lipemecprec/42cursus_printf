@@ -14,9 +14,9 @@ SRCS = 	${SRCS_PATH}/ft_printf.c \
 		${SRCS_PATH}/ft_charsjoin.c \
 		${SRCS_PATH}/ft_ctoa.c \
 		${SRCS_PATH}/ft_itoa_base.c \
-		${SRCS_PATH}/ft_printf_utils.c \
+		${SRCS_PATH}/ft_putchars.c \
 		${SRCS_PATH}/ft_ptoa.c \
-		${SRCS_PATH}/ft_stoa.c 
+		${SRCS_PATH}/ft_stoa.c
 
 OBJS = ${SRCS:%.c=%.o}
 

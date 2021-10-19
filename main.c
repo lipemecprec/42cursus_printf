@@ -6,7 +6,7 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 15:39:20 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/19 15:41:01 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:45:45 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 	// printf("aa > %p\n", &aa);
 	// char saa;
 	ft_printf(" %p %p ", 0, 0);
-	// printf(" %p %p ", 0, 0);
+	printf(" %p %p ", 0, 0);
 	// ft_printf("saa > %p\n", &saa);
 	// printf("saa > %p\n", &saa);
 	// ft_printf("%d\n", -2147483648);
@@ -56,6 +56,6 @@ int main()
 	// printf("%u\n", 2147483648);
 	// ft_printf("%u\n", 0);
 	// printf("%u\n", 0);
-	
+
 	return (0);
 }
