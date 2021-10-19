@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 LIB_PATH = ./include
 LIBFT = ./libft/libft.a
-LIBFTPRINTF = ${LIB_PATH}/libftprintf.h
+LIBFTPRINTF = ${LIB_PATH}/ft_printf.h
 LIBS = -lftprintf
 
 CC = clang

@@ -6,11 +6,11 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:15:46 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 01:04:27 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:35:51 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_memlcat(char *s1, char *s2, int *s1len, int s2len);
 

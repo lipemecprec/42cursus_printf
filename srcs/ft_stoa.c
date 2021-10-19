@@ -6,11 +6,11 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:10:50 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 20:06:08 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:36:39 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_stoa(char *s)
 {

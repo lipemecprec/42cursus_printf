@@ -6,11 +6,11 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 14:55:43 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 01:01:38 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:42:22 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_ptoa(long long p)
 {
@@ -19,6 +19,8 @@ char	*ft_ptoa(long long p)
 	char	*temp_itoa;
 	int		mock_len;
 
+	if (!p)
+		return (ft_stoa(0));
 	temp = (char *)malloc(32 * sizeof(char));
 	temp[0] = '0';
 	temp[1] = 'x';

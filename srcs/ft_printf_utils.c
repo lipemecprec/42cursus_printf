@@ -6,11 +6,11 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:44:52 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 00:59:37 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:36:11 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchars(char *str, int len)
 {

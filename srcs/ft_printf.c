@@ -6,12 +6,11 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 13:37:18 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/18 20:35:04 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:36:26 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdlib.h>
+#include "ft_printf.h"
 
 static char	*flag_check(const char *str, va_list ap)
 {
