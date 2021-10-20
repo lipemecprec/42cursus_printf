@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:26:12 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/19 15:25:10 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:40:59 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_ctoa(char c);
 char	*ft_itoa_base(int n, int base, char flag);
 char	*ft_ulitoa_base(long int nbr, int base, char flag);
 char	*ft_ptoa(long long p);
-char	*ft_stoa(char *s);
 void	ft_putchars(char *str, int len);
+char	*ft_stoa(char *s);
 
 #endif

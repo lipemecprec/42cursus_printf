@@ -6,45 +6,14 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:44:52 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/19 15:36:05 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:03:05 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	ft_itoc(int nbr, char flag)
-{	
-	char	alpha;
-
-	if (flag == 'X')
-		alpha = 'A';
-	else
-		alpha = 'a';
-	if (nbr < 10)
-		return (nbr + '0');
-	else
-		return (alpha + nbr - 10);
-}
-
-static int	ft_intlen_base(long long int n, long long int base)
-{
-	int	i;
-
-	i = 0;
-	if (n < 0)
-	{
-		i++;
-		n = -n;
-	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n = n / base;
-		i++;
-	}
-	return (i);
-}
+static char	ft_itoc(int nbr, char flag);
+static int	ft_intlen_base(long long int n, long long int base);
 
 char	*ft_itoa_base(int n, int base, char flag)
 {
@@ -96,4 +65,38 @@ char	*ft_ulitoa_base(long n, int base, char flag)
 		nbr = nbr / base;
 	}
 	return (str);
+}
+
+static char	ft_itoc(int nbr, char flag)
+{
+	char	alpha;
+
+	if (flag == 'X')
+		alpha = 'A';
+	else
+		alpha = 'a';
+	if (nbr < 10)
+		return (nbr + '0');
+	else
+		return (alpha + nbr - 10);
+}
+
+static int	ft_intlen_base(long long int n, long long int base)
+{
+	int	i;
+
+	i = 0;
+	if (n < 0)
+	{
+		i++;
+		n = -n;
+	}
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / base;
+		i++;
+	}
+	return (i);
 }

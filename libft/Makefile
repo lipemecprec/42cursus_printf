@@ -29,7 +29,7 @@ ${NAME}: ${OBJECTS}
 
 .c.o:
 	# ${CC} ${FLAGS} -c ${FILES}
-	${CC} -c ${FLAGS} $< ${LIB} -o ${<:.c=.o} ${INCLUDE}
+	${CC} -c ${FLAGS} $< -o ${<:.c=.o} ${INCLUDE}
 
 clean:
 	${RM} ${OBJECTS}

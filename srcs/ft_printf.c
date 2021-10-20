@@ -6,11 +6,30 @@
 /*   By: faguilar <faguilar@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 13:37:18 by faguilar          #+#    #+#             */
-/*   Updated: 2021/10/19 17:50:24 by faguilar         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:03:36 by faguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static char	*flag_check(const char *str, va_list ap);
+void	readline(const char *str, va_list	ap, char **str_out, int *len);
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	ap;
+	char	*str_out;
+	int		len;
+
+	len = 0;
+	str_out = ft_strdup("");
+	va_start(ap, str);
+	readline(str, ap, &str_out, &len);
+	va_end(ap);
+	ft_putchars(str_out, len);
+	free(str_out);
+	return (len);
+}
 
 static char	*flag_check(const char *str, va_list ap)
 {
@@ -56,20 +75,4 @@ void	readline(const char *str, va_list	ap, char **str_out, int *len)
 		str++;
 		free(temp_str);
 	}
-}
-
-int	ft_printf(const char *str, ...)
-{
-	va_list	ap;
-	char	*str_out;
-	int		len;
-
-	len = 0;
-	str_out = ft_strdup("");
-	va_start(ap, str);
-	readline(str, ap, &str_out, &len);
-	va_end(ap);
-	ft_putchars(str_out, len);
-	free(str_out);
-	return (len);
 }
